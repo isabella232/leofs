@@ -2,6 +2,7 @@ COMPONENT_INTERNAL=leo_manager
 COMPONENT=leo_manager
 
 include ../pkg.mk
+COMPONENT_PATH=../../package/$(COMPONENT_INTERNAL)_0
 
 .PHONY: build_info package package_list all bootstrap
 
