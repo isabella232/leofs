@@ -42,12 +42,12 @@ case $2 in
             svccfg import $DIR/share/$COMPONENT.xml
         fi
         echo Trying to guess configuration ...
-        IP=`ifconfig net0 | grep inet | awk -e '{print $2}'`
+        IP=$(ifconfig net0 | grep inet | /usr/bin/awk '{print $2}')
         TARGET=/data/$COMPONENT/etc/leo_gateway.conf
         if [ ! -f $TARGET ]
         then
             cp $DIR/etc/leo_gateway.conf.example $TARGET
-            sed --in-place -e "s/127.0.0.1/${IP}/g" $TARGET
+            /usr/bin/sed -i bak -e "s/127.0.0.1/${IP}/g" $TARGET
         fi
         ;;
 esac
