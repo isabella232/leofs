@@ -15,6 +15,7 @@ prepare:
 	mkdir $(DIR)/share
 	cp files/$(COMPONENT).xml $(DIR)/share
 	cp files/start $(DIR)/erts-*/bin/start
+	cp deploy/sbin/$(COMPONENT) $(DIR)/bin
 	rm $(DIR)/etc/leo_storage.conf
 	cp files/leo_storage.conf $(DIR)/etc/leo_storage.conf.example
 	cp files/$(COMPONENT)_snmp.config.0 $(DIR)/snmp/snmpa_storage_0/$(COMPONENT)_snmp.config

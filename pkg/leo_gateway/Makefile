@@ -14,6 +14,7 @@ prepare:
 	mkdir $(DIR)/share
 	cp files/$(COMPONENT).xml $(DIR)/share
 	cp files/start $(DIR)/erts-*/bin/start
+	cp deploy/sbin/$(COMPONENT) $(DIR)/bin
 	rm $(DIR)/etc/leo_gateway.conf
 	cp files/leo_gateway.conf $(DIR)/etc/leo_gateway.conf.example
 	cp files/leo_gateway_snmp.config.0 $(DIR)/snmp/snmpa_gateway_0/leo_gateway_snmp.config

@@ -16,6 +16,7 @@ prepare:
 	mkdir $(DIR)/share
 	cp ../../leofs-adm $(STAGE_DIR)/sbin
 	cp files/$(COMPONENT).xml $(DIR)/share
+	cp deploy/sbin/$(COMPONENT) $(DIR)/bin
 	cp files/start $(DIR)/erts-*/bin/start
 	rm $(DIR)/etc/leo_manager.conf || true
 	cp files/leo_manager.conf.master $(DIR)/etc/leo_manager.conf.example
