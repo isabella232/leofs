@@ -19,15 +19,15 @@ case $2 in
             echo "User already exists, skipping creation."
         else
             echo Creating $USER user ...
-            useradd -g $GROUP -d /var/db/leofs -s /bin/false $USER
+            useradd -g $GROUP -d /data/leofs -s /bin/false $USER
         fi
         echo Creating directories ...
-        mkdir -p /var/db/leofs
-        chown -R $USER:$GROUP /var/db/leofs
-        mkdir -p /var/db/$COMPONENT/snmp
-        chown -R $USER:$GROUP /var/db/$COMPONENT
-        mkdir -p /var/log/$COMPONENT/sasl
-        chown -R $USER:$GROUP /var/log/$COMPONENT
+        mkdir -p /data/leofs
+        chown -R $USER:$GROUP /data/leofs
+        mkdir -p /data/$COMPONENT/db/snmp
+        mkdir -p /data/$COMPONENT/etc
+        mkdir -p /data/$COMPONENT/log/sasl
+        chown -R $USER:$GROUP /data/$COMPONENT
         if [ -d /tmp/$COMPONENT ]
         then
             chown -R $USER:$GROUP /tmp/$COMPONENT/
@@ -42,11 +42,12 @@ case $2 in
             svccfg import $DIR/share/$COMPONENT.xml
         fi
         echo Trying to guess configuration ...
-        IP=`ifconfig net0 | grep inet | awk -e '{print $2}'`
-        if [ ! -f $DIR/etc/leo_storage.conf ]
+        IP=$(ifconfig net0 | grep inet | /usr/bin/awk '{print $2}')
+        TARGET=/data/$COMPONENT/etc/leo_storage.conf
+        if [ ! -f $TARGET ]
         then
-            cp $DIR/etc/leo_storage.conf.example $DIR/etc/leo_storage.conf
-            sed --in-place -e "s/127.0.0.1/${IP}/g" $DIR/etc/leo_storage.conf
+            cp $DIR/etc/leo_storage.conf.example $TARGET
+            /usr/bin/sed -i bak -e "s/127.0.0.1/${IP}/g" $TARGET
         fi
         ;;
 esac

@@ -13,7 +13,7 @@
 ## about configuration parameters
 
 ## SASL error log path
-sasl.sasl_error_log = /var/log/leo_manager/sasl/sasl-error.log
+sasl.sasl_error_log = /data/leo_manager/log/sasl/sasl-error.log
 
 ## Restricts the error logging performed by the specified sasl_error_logger
 ## to error reports, progress reports, or both.
@@ -22,7 +22,7 @@ sasl.sasl_error_log = /var/log/leo_manager/sasl/sasl-error.log
 
 ## Specifies in which directory the files are stored.
 ## If this parameter is undefined or false, the error_logger_mf_h is not installed.
-sasl.error_logger_mf_dir = /var/log/leo_manager/sasl
+sasl.error_logger_mf_dir = /data/leo_manager/log/sasl
 
 ## Specifies how large each individual file can be.
 ## If this parameter is undefined, the error_logger_mf_h is not installed.
@@ -35,9 +35,6 @@ sasl.error_logger_mf_dir = /var/log/leo_manager/sasl
 ## --------------------------------------------------------------------
 ## MANAGER
 ## --------------------------------------------------------------------
-## Mode of Manager: [master|slave]
-manager.mode = master
-
 ## Partner of manager's alias
 manager.partner = manager_1@127.0.0.1
 
@@ -99,7 +96,7 @@ consistency.rack_aware_replicas = 0
 ##     * Store the RING and the command histories
 ## --------------------------------------------------------------------
 ## Mnesia dir
-mnesia.dir = /var/db/leo_manager/mnesia/127.0.0.1
+mnesia.dir = /data/leo_manager/db/mnesia/127.0.0.1
 
 ## The write threshold for transaction log dumps
 ## as the number of writes to the transaction log
@@ -116,23 +113,23 @@ mnesia.dc_dump_limit = 40
 ## log.log_level = 1
 
 ## Output log file(s) - Erlang's log
-log.erlang = /var/log/leo_manager/erlang
+log.erlang = /data/leo_manager/log/erlang
 
 ## Output log file(s) - app
-log.app = /var/log/leo_manager/app
+log.app = /data/leo_manager/log/app
 
 ## Output log file(s) - members of storage-cluster
-log.member_dir = /var/log/leo_manager/ring
+log.member_dir = /data/leo_manager/log/ring
 
 ## Output log file(s) - ring
-log.ring_dir = /var/log/leo_manager/ring
+log.ring_dir = /data/leo_manager/log/ring
 
 
 ## --------------------------------------------------------------------
 ## MANAGER - Other Directories
 ## --------------------------------------------------------------------
 ## Directory of queue for monitoring "RING"
-queue_dir = /var/db/leo_manager/queue
+queue_dir = /data/leo_manager/db/queue
 
 ## Directory of SNMP agent configuration
 ## snmp_agent = ./snmp/snmpa_manager_0/LEO-MANAGER
@@ -196,7 +193,7 @@ erlang.asyc_threads = 32
 erlang.max_ports = 64000
 
 ## Set the location of crash dumps
-erlang.crash_dump = /var/log/leo_manager/erl_crash.dump
+erlang.crash_dump = /data/leo_manager/log/erl_crash.dump
 
 ## Raise the ETS table limit
 erlang.max_ets_tables = 256000
@@ -205,4 +202,4 @@ erlang.max_ets_tables = 256000
 process_limit = 1048576
 
 ## Path of SNMP-agent configuration
-##snmp_conf = ./snmp/snmpa_manager_0/leo_maanager_snmp
+## snmp_conf = ./snmp/snmpa_manager_0/leo_maanager_snmp

@@ -1,14 +1,7 @@
-include ../../leofs.mk
-VERSION=$(LEOFS_VERSION)
 COMPONENT_INTERNAL=leo_storage
 COMPONENT=leo_storage
-COMPONENT_PATH=../../package/$(COMPONENT_INTERNAL)
-DIR=$(STAGE_DIR)/$(COMPONENT)
-PKG_CATEGORY=leofs
-PKG_HOMEPAGE=http://www.leofs.org/
-DEPS="erlang>=16.1.2"
 
-include ../../deps/fifo_utils/priv/pkg.mk
+include ../pkg.mk
 
 .PHONY: build_info package package_list all bootstrap
 
@@ -22,6 +15,7 @@ prepare:
 	mkdir $(DIR)/share
 	cp files/$(COMPONENT).xml $(DIR)/share
 	cp files/start $(DIR)/erts-*/bin/start
+	cp deploy/sbin/$(COMPONENT) $(DIR)/bin
 	rm $(DIR)/etc/leo_storage.conf
 	cp files/leo_storage.conf $(DIR)/etc/leo_storage.conf.example
 	cp files/$(COMPONENT)_snmp.config.0 $(DIR)/snmp/snmpa_storage_0/$(COMPONENT)_snmp.config

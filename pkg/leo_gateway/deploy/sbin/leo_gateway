@@ -5,8 +5,8 @@
 RUNNER_SCRIPT_DIR=$(cd ${0%/*} && pwd)
 
 RUNNER_BASE_DIR=${RUNNER_SCRIPT_DIR%/*}
-RUNNER_ETC_DIR=$RUNNER_BASE_DIR/etc
-RUNNER_LOG_DIR=/var/log/leo_gateway
+RUNNER_ETC_DIR=/data/leo_gateway/etc
+RUNNER_LOG_DIR=/data/leo_gateway/log
 # Note the trailing slash on $PIPE_DIR/
 PIPE_DIR=/tmp/leo_gateway
 CUTTLEFISH_DIR=/tmp/leo_gateway/etc
@@ -190,7 +190,7 @@ case "$1" in
         BINDIR=$ROOTDIR/erts-$ERTS_VSN/bin
         EMU=beam
         PROGNAME=`echo $0 | sed 's/.*\\///'`
-        if CUTTLEFISH_CONFIG=$($ERTS_PATH/escript $RUNNER_BASE_DIR/bin/cuttlefish -e $RUNNER_ETC_DIR -d $CUTTLEFISH_DIR -s $RUNNER_ETC_DIR -c $RUNNER_ETC_DIR/leo_gateway.conf)
+        if CUTTLEFISH_CONFIG=$($ERTS_PATH/escript $RUNNER_BASE_DIR/bin/cuttlefish -e $RUNNER_ETC_DIR -d $CUTTLEFISH_DIR -s $RUNNER_BASE_DIR/etc -c $RUNNER_ETC_DIR/leo_gateway.conf)
         then
             CONFIG_FILES="$CUTTLEFISH_CONFIG"
         else
