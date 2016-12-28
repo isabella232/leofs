@@ -23,7 +23,7 @@
 
 all: deps compile
 compile:
-	find . -name rebar.config|xargs sed -i 's/require_otp_vsn,\s\+"\(.\+\)"/require_otp_vsn, "R16B*|17|18|19"/g'
+	#find . -name rebar.config|xargs sed -i 's/require_otp_vsn,\s\+"\(.\+\)"/require_otp_vsn, "R16B*|17|18|19"/g'
 	@./rebar compile
 deps:
 	@./rebar get-deps
