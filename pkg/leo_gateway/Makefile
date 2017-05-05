@@ -6,7 +6,7 @@ PKG_CATEGORY=leofs
 PKG_HOMEPAGE=https://leo-project.net/leofs/
 DEPS="erlang>=16.1.2"
 
-include ../../deps/fifo_utils/priv/pkg.mk
+include ../pkg.mk
 
 .PHONY: build_info package package_list all bootstrap
 
