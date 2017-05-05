@@ -1,4 +1,4 @@
-apps/
+_build/
 deps/
 rel/leo_manager/leo_manager/
 rel/leo_gateway/leo_gateway/
@@ -7,3 +7,9 @@ package/
 
 rel/leo_manager/files/leo_manager.conf
 rel/leo_manager/files/leo_manager.schema
+
+apps/leo_gateway/cache/
+
+docs/_book/
+docs/node_modules/
+site/

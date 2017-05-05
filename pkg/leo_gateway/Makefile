@@ -1,6 +1,12 @@
 COMPONENT_INTERNAL=leo_gateway
 COMPONENT=leo_gateway
-include ../pkg.mk
+COMPONENT_PATH=../../package/$(COMPONENT_INTERNAL)
+DIR=$(STAGE_DIR)/$(COMPONENT)
+PKG_CATEGORY=leofs
+PKG_HOMEPAGE=https://leo-project.net/leofs/
+DEPS="erlang>=16.1.2"
+
+include ../../deps/fifo_utils/priv/pkg.mk
 
 .PHONY: build_info package package_list all bootstrap
 
